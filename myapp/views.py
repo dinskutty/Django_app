@@ -30,3 +30,10 @@ def index2(request):
         return HttpResponseNotFound("<h2>Not found</h2>")
     else:
         return HttpResponse("<h2>page found</h2>")
+
+#loading image using static
+def imag(request):
+    return render(request,'imag.html')
+#loading js file using static
+def js_file(request):
+    return render(request,'script.html')

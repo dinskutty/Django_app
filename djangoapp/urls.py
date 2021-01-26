@@ -24,4 +24,6 @@ urlpatterns = [
     path('pag/',views.index2),
     path('show/',views.showpg),
     path('index/', views.index), 
+    path('image/',views.imag),
+    path('js/',views.js_file),
 ]
