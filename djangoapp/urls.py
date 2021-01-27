@@ -30,5 +30,5 @@ urlpatterns = [
     path('forms/',views.inde),
     path('forms2/',views.inde2),
     path('validat/',views.emp),
-    
+    path('upload/',views.filep),
 ]

@@ -67,3 +67,16 @@ def emp(request):
     else:  
         form = EmpForm()  
     return render(request,'inde.html',{'form':form})
+
+#file upload
+from myapp.functions.functions import handle_uploaded_file
+from myapp.form import StudForm 
+def filep(request):  
+    if request.method == 'POST':  
+        student = StudForm(request.POST, request.FILES)  
+        if student.is_valid():  
+            handle_uploaded_file(request.FILES['file'])  
+            return HttpResponse("File uploaded successfuly")  
+    else:  
+        student = StudForm()  
+        return render(request,"inde.html",{'form':student}) 
