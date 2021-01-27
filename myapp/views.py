@@ -37,3 +37,6 @@ def imag(request):
 #loading js file using static
 def js_file(request):
     return render(request,'script.html')
+#loading css file using static
+def cs(request):
+    return render(request,'cs.html')

@@ -26,4 +26,5 @@ urlpatterns = [
     path('index/', views.index), 
     path('image/',views.imag),
     path('js/',views.js_file),
+    path('cs/',views.cs),
 ]
