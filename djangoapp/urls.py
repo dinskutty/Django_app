@@ -27,4 +27,8 @@ urlpatterns = [
     path('image/',views.imag),
     path('js/',views.js_file),
     path('cs/',views.cs),
+    path('forms/',views.inde),
+    path('forms2/',views.inde2),
+    path('validat/',views.emp),
+    
 ]

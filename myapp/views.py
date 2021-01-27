@@ -40,3 +40,30 @@ def js_file(request):
 #loading css file using static
 def cs(request):
     return render(request,'cs.html')
+
+#loading model form
+from myapp.form import EmpForm
+
+def inde(request):
+    emp=EmpForm()
+    return render(request,"inde.html",{'form':emp})
+
+
+from myapp.form import StudentForm  
+  
+def inde2(request):  
+    student = StudentForm()  
+    return render(request,"inde.html",{'form':student})  
+
+#django validation
+def emp(request):  
+    if request.method == "POST":  
+        form = EmpForm(request.POST)  
+        if form.is_valid():  
+            try:  
+                return redirect('/')  
+            except:  
+                pass  
+    else:  
+        form = EmpForm()  
+    return render(request,'inde.html',{'form':form})
