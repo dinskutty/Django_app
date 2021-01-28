@@ -22,5 +22,6 @@ class Migration(migrations.Migration):
                 ('mail_id', models.EmailField(max_length=30)),
                 ('entry_date', models.DateField()),
             ],
+            
         ),
     ]

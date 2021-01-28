@@ -80,3 +80,55 @@ def filep(request):
     else:  
         student = StudForm()  
         return render(request,"inde.html",{'form':student}) 
+
+#creating csv with django
+import csv
+def getfile(request):
+    response=HttpResponse(content_type='text/csv')
+    response['Content-Disposition']='attachment;filename="file.csv"'
+    writer = csv.writer(response)  
+    writer.writerow(['1001', 'John', 'Domil', 'CA'])  
+    writer.writerow(['1002', 'Amit', 'Mukharji', 'LA', '"Testing"'])  
+    return response 
+
+#dynamic csv using django
+from myapp.models import Employee
+def getdt(request):
+    response=HttpResponse(content_type='text/csv')
+    response['Content-Disposition']='attachment;filename="file2.csv"'
+    employees= Employee.objects.all()
+    writer =csv.writer(response)
+    for employee in employees:
+        writer.writerow([employee.first_name,employee.last_name,employee.mbl])
+    return response
+
+#using pdf in django
+from reportlab.pdfgen import canvas
+def getpdf(request):  
+    response = HttpResponse(content_type='application/pdf')  
+    response['Content-Disposition'] = 'attachment; filename="sampl.pdf"'  
+    p = canvas.Canvas(response)  
+    p.setFont("Times-Roman", 55)  
+    p.drawString(100,700, "my first pdf creaton")  
+    p.showPage()  
+    p.save()  
+    return response 
+
+#bootstrap
+def boot(request):
+    return render(request,'boots.html')
+
+#setting up mails
+from djangoapp import settings
+from django.core.mail import send_mail
+
+def mails(request):
+    sub="Greetings"
+    msg="Congratulations for your success  dear lusu!! :)"
+    to="saidharanisai143@gmail.com"
+    res=send_mail(sub,msg,settings.EMAIL_HOST_USER,[to])
+    if(res==1):
+        msg="Mail sent successfully"
+    else:
+        "Mail could not sent"
+    return HttpResponse(msg)

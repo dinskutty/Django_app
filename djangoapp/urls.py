@@ -31,4 +31,9 @@ urlpatterns = [
     path('forms2/',views.inde2),
     path('validat/',views.emp),
     path('upload/',views.filep),
+    path('csv/',views.getfile),
+    path('csvs/',views.getdt),
+    path('getpdf/',views.getpdf),
+    path('bootsrp/',views.boot),
+    path('mail/',views.mails),
 ]
